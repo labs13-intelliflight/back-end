@@ -8,5 +8,16 @@
     "express": "^4.17.1",
     "helmet": "^3.18.0",
     "knex": "^0.17.0"
-  }
+  },
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
+  "name": "intelliflight-backend",
+  "version": "1.0.0",
+  "description": "backend for intelliflight",
+  "main": "index.js",
+  "repository": "https://github.com/labs13-intelliflight/back-end.git",
+  "author": "Irving Duran <ijd.irving@gmail.com>",
+  "license": "MIT"
 }
