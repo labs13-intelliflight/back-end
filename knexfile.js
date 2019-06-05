@@ -7,51 +7,36 @@ pg.defaults.ssl = true;
 module.exports = {
 
   development: {
+    client: 'sqlite3',
+    useNullAsDefault: true,
+    connection: {
+      filename: "./database/intelliflight.db3"
+    },
+    migrations: {
+      directory: './database/migrations'
+    },
+    seeds: {
+      directory: './database/seeds'
+    },
+    // pool: {
+    //   min: 0,
+    //   max: 10
+    // }
+  },
+
+  production: {
     client: 'pg',
     useNullAsDefault: true,
     connection: process.env.DATABASE_URL,
     migrations: {
-      directory: './data/migrations'
+      directory: './database/migrations'
     },
     seeds: {
-      directory: './data/seeds'
+      directory: './database/seeds'
     },
     pool: {
       min: 0,
       max: 10
     }
   },
-
-  // staging: {
-  //   client: 'pg',
-  //   connection: {
-  //     database: 'my_db',
-  //     user:     'username',
-  //     password: 'password'
-  //   },
-  //   pool: {
-  //     min: 2,
-  //     max: 10
-  //   },
-  //   migrations: {
-  //     tableName: 'knex_migrations'
-  //   }
-  // },
-
-  // production: {
-  //   client: 'pg',
-  //   connection: {
-  //     database: 'my_db',
-  //     user:     'username',
-  //     password: 'password'
-  //   },
-  //   pool: {
-  //     min: 2,
-  //     max: 10
-  //   },
-  //   migrations: {
-  //     tableName: 'knex_migrations'
-  //   }
-  // }
-
 };

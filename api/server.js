@@ -6,7 +6,8 @@ const server = express();
 
 // Import Routers
 
-const usersRouter = require('../users/users-router');
+const usersRouter = require('../routers/users/users-router');
+const pirepsRouter = require('../routers/pireps/pireps-router')
 
 // Configure Middleware
 
@@ -21,5 +22,7 @@ server.get("/", (req, res) => {
 // Configure Routers
 
 server.use("/api/users", usersRouter);
+server.use("/api/pireps", pirepsRouter)
+
 
 module.exports = server;
