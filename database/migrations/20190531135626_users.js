@@ -7,9 +7,11 @@ exports.up = function(knex, Promise) {
             .unique()
             .notNullable();
 
-        tbl
-            .string('password')
-            .notNullable();
+        // tbl
+        //     .string('password')
+        //     .notNullable();
+        
+        tbl.boolean("paid", false)
     })
 };
 
