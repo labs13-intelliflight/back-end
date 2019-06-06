@@ -12,6 +12,10 @@ exports.up = function(knex, Promise) {
         //     .notNullable();
         
         tbl.boolean("paid", false)
+
+        tbl.boolean("nightmode", false)
+
+
     })
 };
 
