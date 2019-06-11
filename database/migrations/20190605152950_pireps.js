@@ -2,9 +2,13 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable("pireps", tbl => {
     tbl.increments();
 
-    tbl.string("state").notNullable().unique();
+    tbl.string("altitude").notNullable();
 
-    tbl.integer("weather").notNullable();
+    tbl.string("turbulence")
+
+    tbl.string("icing")
+
+    tbl.integer("weather");
 
     tbl.text("description", 1000);
 
