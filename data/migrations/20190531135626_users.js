@@ -3,12 +3,8 @@ exports.up = function(knex, Promise) {
         tbl.increments();
 
         tbl
-            .string('username', 128)
+            .string('email', 128)
             .unique()
-            .notNullable();
-
-        tbl
-            .string('password')
             .notNullable();
     })
 };
