@@ -7,9 +7,11 @@ pg.defaults.ssl = true;
 module.exports = {
 
   development: {
-    client: 'pg',
+    client: 'sqlite3',
     useNullAsDefault: true,
-    connection: process.env.DATABASE_URL,
+    connection: {
+      filename: './data/test-db.db3'
+    },
     migrations: {
       directory: './data/migrations'
     },
@@ -22,36 +24,19 @@ module.exports = {
     }
   },
 
-  // staging: {
-  //   client: 'pg',
-  //   connection: {
-  //     database: 'my_db',
-  //     user:     'username',
-  //     password: 'password'
-  //   },
-  //   pool: {
-  //     min: 2,
-  //     max: 10
-  //   },
-  //   migrations: {
-  //     tableName: 'knex_migrations'
-  //   }
-  // },
-
-  // production: {
-  //   client: 'pg',
-  //   connection: {
-  //     database: 'my_db',
-  //     user:     'username',
-  //     password: 'password'
-  //   },
-  //   pool: {
-  //     min: 2,
-  //     max: 10
-  //   },
-  //   migrations: {
-  //     tableName: 'knex_migrations'
-  //   }
-  // }
-
+  production: {
+    client: 'pg',
+    useNullAsDefault: true,
+    connection: process.env.DATABASE_URL,
+    migrations: {
+      directory: './database/migrations'
+    },
+    seeds: {
+      directory: './database/seeds'
+    },
+    pool: {
+      min: 0,
+      max: 10
+    }
+  }
 };
