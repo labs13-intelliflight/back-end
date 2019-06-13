@@ -6,6 +6,12 @@ exports.up = function(knex, Promise) {
             .string('email', 128)
             .unique()
             .notNullable();
+
+        tbl.boolean("paid", false)
+
+        tbl.boolean("nightmode", false)
+
+
     })
 };
 

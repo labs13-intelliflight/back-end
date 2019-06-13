@@ -1,4 +1,3 @@
-// Update with your config settings.
 require('dotenv').config();
 
 const pg = require('pg');
@@ -10,18 +9,18 @@ module.exports = {
     client: 'sqlite3',
     useNullAsDefault: true,
     connection: {
-      filename: './data/test-db.db3'
+      filename: "./database/intelliflight.db3"
     },
     migrations: {
-      directory: './data/migrations'
+      directory: './database/migrations'
     },
     seeds: {
-      directory: './data/seeds'
+      directory: './database/seeds'
     },
-    pool: {
-      min: 0,
-      max: 10
-    }
+    // pool: {
+    //   min: 0,
+    //   max: 10
+    // }
   },
 
   production: {
@@ -38,5 +37,5 @@ module.exports = {
       min: 0,
       max: 10
     }
-  }
+  },
 };
