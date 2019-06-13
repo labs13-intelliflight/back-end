@@ -21,24 +21,20 @@ router.get("/:pirepid", (req, res) => {
 router.post("/", async (req, res) => {
   const pirep = req.body;
   if (
-    pirep.state &&
-    pirep.latitude &&
-    pirep.longitude &&
-    pirep.weather
+    (pirep.altitude && pirep.latitude && pirep.longitude && pirep.turbulence) ||
+    (pirep.icing && pirep.altitude && pirep.latitude && pirep.longitude)
   ) {
     try {
       const inserted = await Pireps.add(pirep);
       res.status(201).json(inserted);
     } catch (error) {
-      res.status(500).json({message: "error, unable to add your pirep"});
+      res.status(500).json({ message: "error, unable to add your pirep" });
     }
   } else {
-    res
-      .status(400)
-      .json({
-        message:
-          "Please provide a state/province, latitude, longitude and weather icon"
-      });
+    res.status(400).json({
+      message:
+        "Please provide turbulence or icing , latitude, longitude and altitude"
+    });
   }
 });
 
