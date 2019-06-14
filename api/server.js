@@ -6,6 +6,7 @@ const server = express();
 
 // Import Routers
 
+const authRouter = require('../auth/auth-router');
 const usersRouter = require('../routers/users/users-router');
 const pirepsRouter = require('../routers/pireps/pireps-router')
 
@@ -22,6 +23,7 @@ server.get("/", (req, res) => {
 // Configure Routers
 
 server.use("/api/users", usersRouter);
+server.use("/auth", authRouter);
 server.use("/api/pireps", pirepsRouter)
 
 
