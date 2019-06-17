@@ -12,9 +12,9 @@ exports.up = function(knex, Promise) {
 
     tbl.text("description", 1000);
 
-    tbl.integer("latitude").notNullable();
+    tbl.float("latitude").notNullable();
 
-    tbl.integer("longitude").notNullable();
+    tbl.float("longitude").notNullable();
 
     tbl.timestamps(true, true);
   });
