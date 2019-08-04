@@ -12,10 +12,16 @@ function getPireps() {
   return db("pireps");
 }
 
-async function add(pirep) {
-  const [id] = await db("pireps").insert(pirep);
+// async function add(pirep) {
+//   const [id] = await db("pireps").insert(pirep, "id");
 
-  return findById(id);
+//   return findById(id);
+// }
+
+function add(pirep) {
+  return db("pireps").insert(pirep, "id").then(([id]) => {
+    return findById(id)
+  })
 }
 
 function update(id, changes) {
